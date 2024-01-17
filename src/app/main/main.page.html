@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-button>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">main</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div style="display: flex;flex-direction: column; justify-content: center; align-items: center; margin-top: 10vh;">
+    <ion-button [routerLink]="['/catalogo-empleados']">Catalogo Empleados</ion-button>
+    <ion-button [routerLink]="['/crear-empleado']">Nuevo Empleado</ion-button>
+  </div>
+</ion-content>

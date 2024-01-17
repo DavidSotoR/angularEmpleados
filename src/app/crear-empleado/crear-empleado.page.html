@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-button>
+    <ion-title>Crear Empleado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Crear Empleado</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+    <ion-list>
+      <ion-item class="ion-margin-bottom">
+        <ion-input name="formName" [formControl]="inputNombreControl" label="Nombre" labelPlacement="stacked" placeholder="Ingrese Nombre Completo"></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-input name="formAge" [formControl]="inputEdadControl" type="number" label="Edad" labelPlacement="stacked" placeholder="Ingrese Edad"></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <label>Fecha Nacimiento:</label>
+        <ion-datetime-button style="justify-content: start;" presentation="date" datetime="datetime"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime [formControl]="inputFNControl"  [max]="maxDate" presentation="date" locale="es-ES" id="datetime"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-select [formControl]="inputCargoControl" labelPlacement="stacked" label="Cargo" placeholder="Seleccione un cargo">
+          <ion-select-option value="1">Gerente</ion-select-option>
+          <ion-select-option value="2">Coordinador</ion-select-option>
+          <ion-select-option value="3">Subdirector</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-toggle [formControl]="inputEstatusControl" justify="start">Empleado activo</ion-toggle><br /><br />
+      </ion-item>
+    </ion-list>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="3">
+        <div><ion-button (click)="getValuesNewEmpleado()">Agregar</ion-button></div>
+      </ion-col>
+    </ion-row>
+</ion-content>

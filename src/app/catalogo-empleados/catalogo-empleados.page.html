@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-button>
+    <ion-title>CatalogoEmpleados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Catalogo Empleados</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div>
+      <ion-grid>
+        <!-- Encabezado de la tabla -->
+        <ion-row>
+          <ion-col size="1">ID</ion-col>
+          <ion-col size="4">Nombre</ion-col>
+          <ion-col size="2">Edad</ion-col>
+          <ion-col >Acciones</ion-col>
+        </ion-row>
+    
+        <!-- Contenido de la tabla -->
+        <ion-row *ngFor="let item of dataList">
+          <ion-col size="1">{{ item.id }}</ion-col>
+          <ion-col size="4">{{ item.nombre }}</ion-col>
+          <ion-col size="2">{{ item.edad }}</ion-col>
+          <ion-col >
+              <ion-toggle justify="start"></ion-toggle>
+              <ion-button color="warning" fill="outline" size="small">
+                Editar
+              </ion-button>
+              <ion-button color="danger" fill="outline" size="small">
+                X
+              </ion-button>
+              <!-- <ion-button>
+                <ion-icon slot="icon-only" name="star"></ion-icon>
+              </ion-button> -->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    
+    <!-- <ion-list>
+        <ion-item *ngFor="let item of dataList">
+          <ion-card style="width: 100%;">
+            <ion-card-header>
+              <ion-card-title>Empleado: {{ item.id }}</ion-card-title>
+              <ion-card-subtitle>Nombre: {{ item.nombre }}</ion-card-subtitle>
+            </ion-card-header>
+          
+            <ion-card-content>
+              <ion-input value={{item.edad}} name="formAge" type="number" label="Edad" labelPlacement="stacked" placeholder="Ingrese Edad"></ion-input>
+              <ion-grid>
+                <ion-row>
+                  <ion-col style="padding-top: 0; padding-bottom: 0;"><ion-toggle justify="start">Estatus</ion-toggle></ion-col>
+                  <ion-col><ion-button color="warning" shape="round">Editar</ion-button></ion-col>
+                  <ion-col><ion-button color="danger" shape="round">Eliminar</ion-button></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+          
+        </ion-item>
+    </ion-list> -->
+  </div>
+</ion-content>
