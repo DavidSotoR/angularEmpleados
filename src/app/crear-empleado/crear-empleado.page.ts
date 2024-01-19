@@ -80,7 +80,7 @@ export class CrearEmpleadoPage implements OnInit {
       this.serviceEmpleados.postCreateEmpleado(empleado)
 
       this.inputNombreControl.setValue('')
-      this.inputFNControl.setValue('')
+      this.inputEdadControl.setValue('')
       this.inputCargoControl.setValue('')
     }
     

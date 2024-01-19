@@ -24,46 +24,28 @@
         </ion-row>
     
         <!-- Contenido de la tabla -->
-        <ion-row *ngFor="let item of dataList">
+        <ion-row *ngFor="let item of dataList" class="ion-no-padding">
+          <ion-item>
           <ion-col size="1">{{ item.id }}</ion-col>
           <ion-col size="4">{{ item.nombre }}</ion-col>
-          <ion-col size="2">{{ item.edad }}</ion-col>
-          <ion-col >
-              <ion-toggle justify="start"></ion-toggle>
-              <ion-button color="warning" fill="outline" size="small">
-                Editar
-              </ion-button>
-              <ion-button color="danger" fill="outline" size="small">
-                X
-              </ion-button>
-              <!-- <ion-button>
-                <ion-icon slot="icon-only" name="star"></ion-icon>
-              </ion-button> -->
+          <ion-col size="2">
+            <ion-item class="ion-margin-bottom ion-no-padding">
+              <ion-input [name]="'inputName' + item.id" type="number" [value]="item.edad" placeholder="Ingrese Edad"></ion-input>
+            </ion-item>
           </ion-col>
+          <ion-col >
+              <ion-toggle [checked]="item.estatus">{{ item.estatus ? 'Activo' : 'Inactivo' }}</ion-toggle>
+              <div>
+                <ion-button *ngIf="item.estatus != true" color="warning" fill="outline" size="small">
+                  Editar
+                </ion-button>
+                <ion-button color="danger" fill="outline" size="small">
+                  X
+                </ion-button>
+              </div>
+          </ion-col>
+        </ion-item>
         </ion-row>
       </ion-grid>
-    
-    <!-- <ion-list>
-        <ion-item *ngFor="let item of dataList">
-          <ion-card style="width: 100%;">
-            <ion-card-header>
-              <ion-card-title>Empleado: {{ item.id }}</ion-card-title>
-              <ion-card-subtitle>Nombre: {{ item.nombre }}</ion-card-subtitle>
-            </ion-card-header>
-          
-            <ion-card-content>
-              <ion-input value={{item.edad}} name="formAge" type="number" label="Edad" labelPlacement="stacked" placeholder="Ingrese Edad"></ion-input>
-              <ion-grid>
-                <ion-row>
-                  <ion-col style="padding-top: 0; padding-bottom: 0;"><ion-toggle justify="start">Estatus</ion-toggle></ion-col>
-                  <ion-col><ion-button color="warning" shape="round">Editar</ion-button></ion-col>
-                  <ion-col><ion-button color="danger" shape="round">Eliminar</ion-button></ion-col>
-                </ion-row>
-              </ion-grid>
-            </ion-card-content>
-          </ion-card>
-          
-        </ion-item>
-    </ion-list> -->
   </div>
 </ion-content>
